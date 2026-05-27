@@ -104,13 +104,15 @@ a {
     position: absolute;
     visibility: hidden;
     opacity: 0;
+    transform-origin: 20% 0;
+    scale: 0;
     transition: all 0.4s ease;
 }
 
 .nav-list li:hover .subnav-list {
     visibility: visible;
     opacity: 1;
-    transition: all 0.4s ease;
+    scale: 1;
 }
 
 .subnav-item {
@@ -230,11 +232,6 @@ h1.heading {
     background-color: var(--primary);
 }
 
-/* .form-input:not(:placeholder-shown) + .search-form {
-    color: #000;
-    transition: all 0.3s ease;
-} */
-
 .content-sidebar h2.heading {
     font-size: 1.6rem;
     margin-top: 43px;
@@ -253,9 +250,7 @@ h1.heading {
     display: block;
     margin-top: 15px;
     font-size: 1.6rem;
-    /* height: 40px; */
     text-decoration: none;
-    /* padding: 0 25px; */
     line-height: 23px;
     color: #000000b3;
     transition: 0.3s ease;
@@ -263,13 +258,8 @@ h1.heading {
 
 .sidebar-item:hover a {
     color: var(--primary);
-    /* padding-left: 35px; */
     transition: all 0.5s ease;
 }
-
-/* .sidebar-item + .sidebar-item {
-    border-top: 1px solid #0000000d;
-} */
 
 .content-sidebar .thumb {
     width: 100px;
@@ -339,8 +329,10 @@ h1.heading {
     color: #6f6f6f;
 }
 
-.opt:hover {
-    background-color: var(--primary);
+.select-value .opt {
+    color: blue;
+    background-color: #f0f0f0;
+    font-size: 14px;
 }
 
 .topic-list {
@@ -585,7 +577,13 @@ h1.heading {
     color: #fff9;
 }
 
+/* .btn-submit span {
+    color: #fff;
+    z-index: 1;
+} */
+
 .btn-submit {
+    position: relative;
     margin-top: 10px;
     min-width: 95px;
     line-height: 40px;
@@ -593,12 +591,35 @@ h1.heading {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     background-color: var(--primary);
-    color: #fff;
     transition: all 0.5s ease;
+    overflow: hidden;
 }
 
-.btn-submit:hover {
+.btn-submit span {
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-submit::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    bottom: 50%;
+    width: 0;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+}
+
+.btn-submit:hover::before {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
     background-color: #fff;
+}
+
+.btn-submit:hover span {
     color: var(--primary);
-    transition: all 0.5s ease;
 }

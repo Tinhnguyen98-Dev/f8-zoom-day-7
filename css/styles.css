@@ -87,6 +87,9 @@ a {
 
 .nav-list {
     display: flex;
+}
+
+.nav-list > li {
     position: relative;
 }
 
@@ -101,15 +104,19 @@ a {
 
 .subnav-list {
     position: absolute;
+    left: 0;
+    top: 100%;
     visibility: hidden;
     opacity: 0;
+    transform-origin: left;
+    scale: 0;
     transition: all 0.4s ease;
 }
 
-.nav-list li:hover .subnav-list {
+.nav-list > li:hover .subnav-list {
     visibility: visible;
     opacity: 1;
-    transition: all 0.4s ease;
+    scale: 1;
 }
 
 .subnav-item {
@@ -132,10 +139,9 @@ a {
 }
 
 .subnav-list li:hover .subnav-item {
-    padding: 0 29px;
+    padding-left: 29px;
     color: var(--white);
     background-color: var(--primary);
-    transition: all 0.5s ease;
 }
 
 .btn-search {
@@ -181,7 +187,6 @@ h1.heading {
 
 .breadcrumb li:hover a {
     color: var(--second);
-    transition: 0.3s ease;
 }
 
 /* SIDEBAR */
@@ -237,19 +242,20 @@ h1.heading {
 }
 
 .sidebar-item a {
-    display: block;
+    /* display: block; */
+    position: relative;
+    left: 0;
     height: 40px;
     text-decoration: none;
     padding: 0 25px;
     line-height: 40px;
     color: #000000b3;
-    transition: 0.3s ease;
+    transition: left 0.3s ease;
 }
 
 .sidebar-item:hover a {
     color: var(--second);
-    padding-left: 35px;
-    transition: all 0.5s ease;
+    left: 10px;
 }
 
 .sidebar-item + .sidebar-item {
@@ -289,7 +295,6 @@ h1.heading {
 .topic-list li:hover a {
     color: var(--white);
     background-color: var(--second);
-    transition: all 0.3s ease;
 }
 
 .active {
@@ -329,7 +334,6 @@ h1.heading {
 
 .course-item:hover .thumb {
     transform: scale(1.1);
-    transition: all 0.3s ease;
 }
 
 .info-course {
@@ -412,7 +416,6 @@ h1.heading {
 .btn-coures:hover {
     box-shadow: 0px 25px 11px -12px rgba(0, 0, 0, 0.71);
     transform: translateY(-5px);
-    transition: all 0.3s ease-in-out;
 }
 
 .course-item:nth-of-type(3n + 1) .btn-coures {
@@ -433,10 +436,6 @@ h1.heading {
     color: var(--second);
 }
 
-.btn-pagi:hover {
-    transition: all 0.4s ease;
-}
-
 .btn-pagi {
     text-decoration: none;
     text-align: center;
@@ -446,6 +445,7 @@ h1.heading {
     border: 1px solid #0003;
     color: #0000004d;
     border-radius: 8px;
+    transition: all 0.4s ease;
 }
 
 .btn-pagi:last-child {
@@ -514,12 +514,11 @@ h1.heading {
     text-decoration: none;
     line-height: 30px;
     color: #fff9;
-    transition: all 0.3s ease;
+    transition: color 0.4s ease;
 }
 
 .info-footer li:hover .text {
     color: var(--primary);
-    transition: all 0.3s ease;
 }
 
 .info-footer .text-sub {
@@ -546,6 +545,7 @@ h1.heading {
 }
 
 .btn-submit {
+    position: relative;
     margin-top: 10px;
     min-width: 95px;
     line-height: 40px;
@@ -553,12 +553,32 @@ h1.heading {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     background-color: var(--primary);
-    color: #fff;
     transition: all 0.5s ease;
 }
 
-.btn-submit:hover {
+.btn-submit span {
+    position: relative;
+    z-index: 1;
+    color: var(--white);
+}
+
+.btn-submit::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    bottom: 50%;
+    width: 0%;
+    border-radius: 20px;
     background-color: #fff;
-    color: var(--primary);
     transition: all 0.5s ease;
+}
+
+.btn-submit:hover::after {
+    inset: 0;
+    width: 100%;
+}
+
+.btn-submit:hover span {
+    color: var(--primary);
 }
