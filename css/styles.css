@@ -74,6 +74,8 @@ a {
 }
 
 .header-wrapper .inner {
+    position: sticky;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -105,10 +107,10 @@ a {
 .subnav-list {
     position: absolute;
     left: 0;
+    right: 0;
     top: 100%;
     visibility: hidden;
     opacity: 0;
-    transform-origin: left;
     scale: 0;
     transition: all 0.4s ease;
 }
@@ -538,6 +540,7 @@ h1.heading {
     width: 100%;
     height: 40px;
     background: #272727;
+    outline: none;
     border: none;
     border-radius: 20px;
     padding: 0 20px;

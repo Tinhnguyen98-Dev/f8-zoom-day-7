@@ -138,7 +138,6 @@ a {
     padding: 0 29px;
     color: var(--white);
     background-color: var(--primary);
-    transition: all 0.5s ease;
 }
 
 .btn-search {
@@ -184,7 +183,6 @@ h1.heading {
 
 .breadcrumb li:hover a {
     color: var(--second);
-    transition: 0.3s ease;
 }
 
 /* SIDEBAR */
@@ -213,20 +211,17 @@ h1.heading {
     padding: 0 10px;
     border: none;
     background-color: #eeeeee;
-    /* border-radius: 20px; */
     font-family: "Source Sans Pro", sans-serif;
     font-size: 1.5rem;
     font-style: italic;
-    color: #fff;
+    color: #000000b3;
 }
 
 .search-form {
-    /* margin-left: auto; */
     min-width: 100px;
     padding: 0 10px;
     line-height: 45px;
     color: #fff;
-    /* transition: all 0.3s ease; */
     text-align: center;
     text-decoration: none;
     background-color: var(--primary);
@@ -258,7 +253,6 @@ h1.heading {
 
 .sidebar-item:hover a {
     color: var(--primary);
-    transition: all 0.5s ease;
 }
 
 .content-sidebar .thumb {
@@ -287,7 +281,6 @@ h1.heading {
 .name-product:hover {
     color: var(--primary);
     cursor: pointer;
-    transition: all 0.4s ease;
 }
 
 .value-product {
@@ -330,9 +323,16 @@ h1.heading {
 }
 
 .select-value .opt {
-    color: blue;
+    min-width: 200px;
+    height: 45px;
+    color: #333;
     background-color: #f0f0f0;
     font-size: 14px;
+}
+
+.select-value .opt:hover {
+    color: #fff;
+    background-color: var(--primary);
 }
 
 .topic-list {
@@ -358,7 +358,6 @@ h1.heading {
 .topic-list li:hover a {
     color: var(--white);
     background-color: var(--second);
-    transition: all 0.3s ease;
 }
 
 .active {
@@ -398,7 +397,6 @@ h1.heading {
 
 .course-item:hover .thumb {
     transform: scale(1.1);
-    transition: all 0.3s ease;
 }
 
 .info-course {
@@ -443,7 +441,6 @@ h1.heading {
 .btn-coures:hover {
     box-shadow: 0px 25px 11px -12px rgba(0, 0, 0, 0.71);
     transform: translateY(-5px);
-    transition: all 0.3s ease-in-out;
 }
 
 .pagination {
@@ -572,15 +569,11 @@ h1.heading {
     height: 40px;
     background: #272727;
     border: none;
+    outline: none;
     border-radius: 20px;
     padding: 0 20px;
     color: #fff9;
 }
-
-/* .btn-submit span {
-    color: #fff;
-    z-index: 1;
-} */
 
 .btn-submit {
     position: relative;
